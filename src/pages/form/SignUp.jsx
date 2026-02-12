@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { signUp } from "../../firebase/auth";
+
 import { User, GraduationCap } from "lucide-react";
 
 import userGroupIcon from "../../assets/images/signup-logo.png"
@@ -23,7 +25,7 @@ function Signup() {
     }));
   };
 
-  function handleSubmit (e) {
+  async function handleSubmit (e) {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
@@ -37,9 +39,10 @@ function Signup() {
     }
 
     console.log({ ...formData, role });
+    const {email, password, name} = formData 
 
     // 👉 later:
-    // await signupUser(formData.email, formData.password, formData.name, role)
+    await signUp(email, password, name, role)
   };
 
   return (

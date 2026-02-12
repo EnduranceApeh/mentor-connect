@@ -1,4 +1,4 @@
-import { serverTimestamp } from "@firebase/firestore";
+
 import {auth, db} from "./config";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import {doc, setDoc, serverTimestamp} from "firebase/firestore";
@@ -9,7 +9,7 @@ export async function signUp (email, password, name, role) {
 
   const user = userCredential.user
 
-  await setDoc(doc(db, "users", user.id), {
+  await setDoc(doc(db, "users", user.uid), {
     uid: user.uid,
     name,
     email: user.email,
@@ -17,6 +17,7 @@ export async function signUp (email, password, name, role) {
     createAt: serverTimestamp()
   })
 
+  console.log(user)
   return user;
 }
 
