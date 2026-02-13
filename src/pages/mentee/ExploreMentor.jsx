@@ -1,4 +1,4 @@
-import { db } from "../config"
+import { db } from "../../firebase/config";
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { useState, useEffect } from "react";
 
@@ -34,13 +34,19 @@ function ExploreMentor() {
   }, [])
 
   return (
-    <ul>
+   <div>
+    <h2>Explore Mentors</h2>
+    <p>Discover experienced professionals ready to guide your career journey</p>
+
+
+     <ul className="grid-cols">
       {mentors.map(mentor =>
         <li key={mentor.uid}>
           <MentorCard name={mentor.name} />
         </li>
       )}
     </ul>
+   </div>
   )
 }
 
