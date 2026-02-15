@@ -50,4 +50,4 @@ function ExploreMentor() {
   )
 }
 
-export default ExploreMentor
+export default ExploreMentor;
