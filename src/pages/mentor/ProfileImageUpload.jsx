@@ -20,3 +20,5 @@ function ProfileImageUpload({ profile, setProfile}) {
     </div>
   )
 }
+
+export default ProfileImageUpload
