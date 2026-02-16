@@ -43,3 +43,5 @@ function SocialLinksInput({ profile, setProfile }) {
     </div>
   )
 }
+
+export default SocialLinksInput

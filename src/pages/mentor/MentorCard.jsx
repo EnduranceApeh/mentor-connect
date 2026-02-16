@@ -1,6 +1,6 @@
 import { UserPlus } from "lucide-react";
 
-function MentorCard({ image = "", name, techRole = "", techStacks = [] }) {
+function MentorCard({ image = "", name, techRole = "", skills = [] }) {
   return (
     <div className="bg-white max-w-sm w-full rounded-2xl shadow-md p-5 flex flex-col gap-4 hover:shadow-lg transition">
 
@@ -8,7 +8,7 @@ function MentorCard({ image = "", name, techRole = "", techStacks = [] }) {
         <img
           src={image}
           alt={name}
-          className="w-16 h-16 rounded-full object-cover"
+          className="w-16 h-16 rounded-full object-cover block"
         />
 
         <div>
@@ -23,12 +23,12 @@ function MentorCard({ image = "", name, techRole = "", techStacks = [] }) {
 
       {/* Tech Stacks */}
       <ul className="flex flex-wrap gap-2">
-        {techStacks.map((stack, index) => (
+        {skills.map((skill, index) => (
           <li
             key={index}
             className="text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full"
           >
-            {stack}
+            {skill}
           </li>
         ))}
       </ul>

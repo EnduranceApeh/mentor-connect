@@ -6,8 +6,10 @@ import Login from "./pages/form/Login";
 import ExploreMentor from "./pages/mentee/ExploreMentor";
 import RequestStatus from "./pages/mentee/RequestStatus";
 
-import './App.css'
 import MenteeLayout from "./pages/mentee/MenteeLayout";
+import MentorEditProfile from "./pages/mentor/MentorEditProfile";
+
+import './App.css'
 
 function App() {
 
@@ -23,6 +25,7 @@ function App() {
         }/>
       <Route path="/sign-up" element={<Signup />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/mentor" element={<MentorEditProfile />}></Route>
 
       <Route path="/mentee" element={<MenteeLayout />}>
         <Route index element={<ExploreMentor />} />

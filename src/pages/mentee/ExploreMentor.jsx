@@ -2,8 +2,8 @@ import { db } from "../../firebase/config";
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { useState, useEffect } from "react";
 
-
 import MentorCard from "../../pages/mentor/MentorCard";
+
 
 function ExploreMentor() {
   const [mentors, setMentors] = useState([]);
@@ -39,10 +39,10 @@ function ExploreMentor() {
     <p>Discover experienced professionals ready to guide your career journey</p>
 
 
-     <ul className="grid-cols">
+     <ul className="flex gap-5">
       {mentors.map(mentor =>
         <li key={mentor.uid}>
-          <MentorCard name={mentor.name} />
+          <MentorCard name={mentor.name} techRole={mentor.techRole} skills={mentor.skills}/>
         </li>
       )}
     </ul>

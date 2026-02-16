@@ -8,7 +8,7 @@ function SkillsInput({ profile, setProfile }) {
 
     setProfile({
       ...profile,
-      skills: [...profile.skills, skillsInput]
+      skills: [...profile.skills, skillInput]
     })
 
     setSkillInput("");
