@@ -7,7 +7,12 @@ import ExploreMentor from "./pages/mentee/ExploreMentor";
 import RequestStatus from "./pages/mentee/RequestStatus";
 
 import MenteeLayout from "./pages/mentee/MenteeLayout";
+
+
+
+import MentorLayout from "./pages/mentor/MentorLayout";
 import MentorEditProfile from "./pages/mentor/MentorEditProfile";
+import Requests from "./pages/mentor/Requests";
 
 import './App.css'
 
@@ -25,11 +30,16 @@ function App() {
         }/>
       <Route path="/sign-up" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/mentor" element={<MentorEditProfile />}></Route>
+  
 
       <Route path="/mentee" element={<MenteeLayout />}>
         <Route index element={<ExploreMentor />} />
         <Route path="/mentee/request-status" element={<RequestStatus />}/>
+      </Route>
+
+      <Route path="/mentor" element={<MentorLayout />}>
+        <Route index element={<MentorEditProfile />} />
+        <Route path="/mentor/requests" element={<Requests />} />
       </Route>
     </Routes>
     
