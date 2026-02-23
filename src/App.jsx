@@ -15,6 +15,7 @@ import MentorEditProfile from "./pages/mentor/MentorEditProfile";
 import Requests from "./pages/mentor/Requests";
 
 import './App.css'
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
 
@@ -32,14 +33,18 @@ function App() {
       <Route path="/login" element={<Login />} />
   
 
-      <Route path="/mentee" element={<MenteeLayout />}>
-        <Route index element={<ExploreMentor />} />
-        <Route path="/mentee/request-status" element={<RequestStatus />}/>
+      <Route element={<ProtectedRoute allowedRole="mentee"/>}>
+        <Route path="/mentee" element={<MenteeLayout />}>
+          <Route index element={<ExploreMentor />} />
+          <Route path="/mentee/request-status" element={<RequestStatus />}/>
+        </Route>
       </Route>
 
-      <Route path="/mentor" element={<MentorLayout />}>
-        <Route index element={<MentorEditProfile />} />
-        <Route path="/mentor/requests" element={<Requests />} />
+      <Route element={<ProtectedRoute allowedRole="mentor" />}>
+        <Route path="/mentor" element={<MentorLayout />}>
+          <Route index element={<MentorEditProfile />} />
+          <Route path="/mentor/requests" element={<Requests />} />
+        </Route>
       </Route>
     </Routes>
     

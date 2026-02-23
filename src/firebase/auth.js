@@ -22,7 +22,7 @@ export async function signUp (email, password, name, role) {
 }
 
 //singn-in
-export async function signIn(email, password) {
+export async function login(email, password) {
   const userCredential = await signInWithEmailAndPassword(auth, email, password)
   return userCredential.user;
 }
