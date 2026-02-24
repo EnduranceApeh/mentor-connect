@@ -1,12 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import { UserPlus } from "lucide-react";
 
-function MentorCard({ image = "", name, techRole = "", skills = [] }) {
+function MentorCard({ id, image = "", name, techRole = "", skills = [] }) {
+  const navigate = useNavigate();
+
+
+
   return (
     <div className="bg-white max-w-sm w-full rounded-2xl shadow-md p-5 flex flex-col gap-4 hover:shadow-lg transition">
 
       <div className="flex items-center gap-4">
         <img
-          src={image}
+          src={null}
           alt={name}
           className="w-16 h-16 rounded-full object-cover block"
         />
@@ -35,7 +40,7 @@ function MentorCard({ image = "", name, techRole = "", skills = [] }) {
 
       {/* Buttons */}
       <div className="flex gap-3 mt-2">
-        <button className="flex-1 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition cursor-pointer">
+        <button className="flex-1 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition cursor-pointer" onClick={() => navigate(`/mentee/mentor/${id}`)}>
           View Profile
         </button>
 

@@ -42,7 +42,7 @@ function ExploreMentor() {
      <ul className="flex gap-5">
       {mentors.map(mentor =>
         <li key={mentor.uid}>
-          <MentorCard name={mentor.name} techRole={mentor.techRole} skills={mentor.skills}/>
+          <MentorCard id={mentor.uid} name={mentor.name} techRole={mentor.techRole} skills={mentor.skills}/>
         </li>
       )}
     </ul>
