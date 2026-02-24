@@ -7,6 +7,7 @@ import ExploreMentor from "./pages/mentee/ExploreMentor";
 import RequestStatus from "./pages/mentee/RequestStatus";
 
 import MenteeLayout from "./pages/mentee/MenteeLayout";
+import MentorProfile from "./components/ui/MentorProfile";
 
 
 
@@ -37,6 +38,7 @@ function App() {
         <Route path="/mentee" element={<MenteeLayout />}>
           <Route index element={<ExploreMentor />} />
           <Route path="/mentee/request-status" element={<RequestStatus />}/>
+          <Route path="mentor/:id" element={<MentorProfile />} />
         </Route>
       </Route>
 
@@ -44,6 +46,7 @@ function App() {
         <Route path="/mentor" element={<MentorLayout />}>
           <Route index element={<MentorEditProfile />} />
           <Route path="/mentor/requests" element={<Requests />} />
+          
         </Route>
       </Route>
     </Routes>
