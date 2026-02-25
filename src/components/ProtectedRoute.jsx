@@ -2,15 +2,15 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 function ProtectedRoute({ allowedRole }) {
-  const { user, role } = useAuth(); // ✅ must call the hook
+  const { firebaseUser, role, loading } = useAuth();
 
-  // Wait for auth state to load
-  if (user === null && role === null) {
+  // Wait for auth to finish loading
+  if (loading) {
     return <div>Loading...</div>;
   }
 
   // Not logged in
-  if (!user) {
+  if (!firebaseUser) {
     return <Navigate to="/login" replace />;
   }
 
@@ -19,7 +19,7 @@ function ProtectedRoute({ allowedRole }) {
     return <Navigate to="/login" replace />;
   }
 
-  // User is allowed → render nested routes
+  // Allowed
   return <Outlet />;
 }
 
