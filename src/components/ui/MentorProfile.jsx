@@ -2,16 +2,39 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import { useAuth } from "../../context/AuthContext";
+
+import sendMentorshipRequest from "../../firebase/requestService";
 import { Briefcase, Clock, Mail } from "lucide-react";
 
 function MentorProfile() {
+  const { userData } = useAuth();
   const { id } = useParams();
   const [mentor, setMentor] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  async function handleRequest() {
+    if (!userData) return;
+
+    try{
+      await sendMentorshipRequest({
+        mentorId: id,
+        mentorName: mentor.fullName || mentor.name,
+         menteeId: userData.uid,
+         menteeName: userData?.name
+      })
+      
+      alert("Request sent successfully")
+    }catch(error) {
+      console.log(error)
+      alert("Failed to send request")
+    }
+  }
+
   useEffect(() => {
     const fetchMentor = async () => {
       try {
+        //console.log(user)
         const docRef = doc(db, "users", id);
         const docSnap = await getDoc(docRef);
 
@@ -98,7 +121,7 @@ function MentorProfile() {
      
 
       {/* CTA */}
-      <button className="w-full mt-8 bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition">
+      <button className="w-full mt-8 bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition" onClick={handleRequest}>
         Request Mentorship
       </button>
     </div>
