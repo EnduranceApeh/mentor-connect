@@ -64,67 +64,107 @@ function MentorProfile() {
   }
 
   return (
-    <div className="max-w-3xl rounded-2xl">
-      {/* Header */}
-      <div className="flex items-center gap-6 bg-[#FFFFFF] rounded-xl shadow-lg py-5">
-        <img
-          src={mentor.photoURL || "https://via.placeholder.com/120"}
-          alt="mentor"
-          className="w-28 h-28 rounded-full object-cover"
-        />
-        <div>
-          <h2 className="text-2xl font-bold">{mentor.name}</h2>
-          <p className="text-[#6366F1] text-lg">{mentor.techRole}</p>
-          <div className="flex items-center gap-2">
-          <Briefcase size={18} />
-          <span>{mentor.experience} years experience</span>
-        </div>
-          <p className="text-gray-500 capitalize">{mentor.role}</p>
-        </div>
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+
+  {/* Header */}
+  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 bg-white rounded-2xl shadow-md border border-gray-100 p-6">
+
+    <img
+      src={
+        mentor.photoURL ||
+        `https://ui-avatars.com/api/?name=${mentor.fullName}&background=6366F1&color=fff`
+      }
+      alt="mentor"
+      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-gray-100 shadow-sm"
+    />
+
+    <div className="text-center sm:text-left">
+      <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
+        {mentor.name}
+      </h2>
+
+      <p className="text-indigo-600 text-base sm:text-lg font-medium mt-1">
+        {mentor.techRole}
+      </p>
+
+      <div className="flex items-center justify-center sm:justify-start gap-2 text-gray-600 mt-3">
+        <Briefcase size={18} />
+        <span className="text-sm sm:text-base">
+          {mentor.experience} years experience
+        </span>
       </div>
 
-       {/* Skills */}
-      <div className="mt-6  bg-[#FFFFFF] rounded-xl shadow-lg py-5 px-4">
-        <h3 className="font-semibold text-lg mb-3">Skills</h3>
-        <div className="flex flex-wrap gap-2">
-          {mentor.skills?.map((skill, index) => (
-            <span
-              key={index}
-              className="text-blue-600 px-3 py-1 rounded-full text-sm"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Bio */}
-      <div className="mt-6 bg-[#FFFFFF] rounded-xl shadow-lg py-5 px-4">
-        <h3 className="font-semibold text-lg mb-2">About</h3>
-        <p className="text-gray-600">{mentor.bio}</p>
-      </div>
-
-      {/* Info Section */}
-      <div className="grid grid-cols-2 gap-6 mt-6">
-
-        <div className="flex items-center gap-2">
-          <Clock size={18} />
-          <span>{mentor.availability}</span>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Mail size={18} />
-          <span>{mentor.email}</span>
-        </div>
-      </div>
-
-     
-
-      {/* CTA */}
-      <button className="w-full mt-8 bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition" onClick={handleRequest}>
-        Request Mentorship
-      </button>
+      <p className="text-sm text-gray-400 capitalize mt-2">
+        {mentor.role}
+      </p>
     </div>
+  </div>
+
+  {/* Skills */}
+  <div className="mt-8 bg-white rounded-2xl shadow-md border border-gray-100 p-6">
+    <h3 className="font-semibold text-lg text-gray-800 mb-4">
+      Skills
+    </h3>
+
+    <div className="flex flex-wrap gap-3">
+      {mentor.skills?.map((skill, index) => (
+        <span
+          key={index}
+          className="bg-indigo-50 text-indigo-600 px-4 py-1.5 rounded-full text-sm font-medium"
+        >
+          {skill}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  {/* Bio */}
+  <div className="mt-8 bg-white rounded-2xl shadow-md border border-gray-100 p-6">
+    <h3 className="font-semibold text-lg text-gray-800 mb-3">
+      About
+    </h3>
+
+    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+      {mentor.bio}
+    </p>
+  </div>
+
+  {/* Info Section */}
+  <div className="mt-8 bg-white rounded-2xl shadow-md border border-gray-100 p-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+    <div className="flex items-center gap-3 text-gray-600">
+      <Clock size={18} className="text-indigo-600" />
+      <span>{mentor.availability}</span>
+    </div>
+
+    <div className="flex items-center gap-3 text-gray-600 break-all">
+      <Mail size={18} className="text-indigo-600" />
+      <span>{mentor.email}</span>
+    </div>
+  </div>
+
+  {/* CTA */}
+  <button
+    className="
+      w-full
+      mt-10
+      bg-indigo-600
+      text-white
+      py-3.5
+      rounded-xl
+      font-medium
+      shadow-md
+      hover:bg-indigo-700
+      hover:shadow-lg
+      transition-all
+      duration-200
+    "
+    onClick={handleRequest}
+  >
+    Request Mentorship
+  </button>
+
+</div>
   )
 }
 
