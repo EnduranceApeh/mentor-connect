@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { UserPlus } from "lucide-react";
 
-function MentorCard({ id, image = "", name, techRole = "", skills = [] }) {
+function MentorCard({ id, image = "", name, fullName, techRole = "", skills = [] }) {
   const navigate = useNavigate();
 
 
@@ -24,7 +24,7 @@ function MentorCard({ id, image = "", name, techRole = "", skills = [] }) {
   <div className="flex items-center gap-4">
 
     <img
-      src={null || "https://via.placeholder.com/150"}
+      src={image || `https://ui-avatars.com/api/?name=${fullName || name}&background=6366F1&color=fff`}
       alt={name}
       className="
         w-14 h-14 
@@ -42,7 +42,7 @@ function MentorCard({ id, image = "", name, techRole = "", skills = [] }) {
         text-gray-800 
         truncate
       ">
-        {name}
+        {fullName || name}
       </h2>
 
       <p className="

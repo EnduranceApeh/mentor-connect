@@ -51,6 +51,7 @@ function ExploreMentor() {
               <MentorCard
                 id={mentor.uid}
                 name={mentor.name}
+                fullName={mentor.fullName}
                 techRole={mentor.techRole}
                 skills={mentor.skills}
               />
