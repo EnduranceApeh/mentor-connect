@@ -25,18 +25,35 @@ function WhyChooseUs() {
     }
   ]
   return (
-    <section className="my-20 text-center px-9">
-      <h2 className="text-2xl text-[#1E293B] font-bold leading-[46px]">Why Choose MentorConnect?</h2>
-      <p className="text-[#4B5563] text-sm font-normal">Everything you need for a tech mentors</p>
-      <div className="grid grid-cols-3 gap-6 my-9">
-        {
+    <section className="my-16 sm:my-20 
+                    text-center 
+                    px-6 sm:px-10 lg:px-20">
 
-          features.map((item, index) => (
-            <FeatureCard key={index} {...item} />
-          ))
-        }
-      </div>
-    </section>
+  <h2 className="text-2xl sm:text-3xl lg:text-4xl 
+                 text-gray-900 
+                 font-bold">
+    Why Choose MentorConnect?
+  </h2>
+
+  <p className="text-gray-600 
+                text-sm sm:text-base 
+                mt-3 max-w-xl mx-auto">
+    Everything you need for a tech mentorship journey
+  </p>
+
+  <div className="grid 
+                  grid-cols-1 
+                  sm:grid-cols-2 
+                  lg:grid-cols-3 
+                  gap-6 sm:gap-8 
+                  mt-12">
+
+    {features.map((item, index) => (
+      <FeatureCard key={index} {...item} />
+    ))}
+
+  </div>
+</section>
   )
 }
 

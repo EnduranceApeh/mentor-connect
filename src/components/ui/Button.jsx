@@ -5,7 +5,7 @@ function Button() {
     <div className="flex gap-8">
       <Link
         to="/sign-up"
-        className="bg-[#3B82F6] py-2 px-4 text-[#FFFFFF] rounded-sm"
+        className="bg-[#3B82F6] py-2 px-4 text-[#FFFFFF rounded-sm text-[#ffff]"
       >
         Join as Mentee
       </Link>

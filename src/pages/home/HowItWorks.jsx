@@ -20,17 +20,35 @@ function HowItWorks() {
   ]
 
   return (
-    <section className="my-20 text-center px-9 bg-[#F9FAFB] py-10">
-      <h2 className="text-2xl text-[#1E293B] font-bold leading-[46px]">How It Works</h2>
-      <p className="text-[#4B5563] text-sm font-normal">Everything you need for a tech mentors</p>
-      <div className="grid grid-cols-3 gap-6 my-9">
-        {
+    <section className="bg-gray-50 
+                        py-16 sm:py-20 
+                        px-6 sm:px-10 lg:px-20 
+                        text-center">
 
-          steps.map((item, index) => (
-            <StepCard key={index} {...item} />
-          ))
-        }
+      {/* Header */}
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl 
+                     font-bold text-gray-900">
+        How It Works
+      </h2>
+
+      <p className="text-gray-600 
+                    text-sm sm:text-base 
+                    mt-3 max-w-xl mx-auto">
+        Everything you need for a tech mentorship journey
+      </p>
+
+      {/* Steps Grid */}
+      <div className="grid 
+                      grid-cols-1 
+                      sm:grid-cols-2 
+                      lg:grid-cols-3 
+                      gap-6 sm:gap-8 
+                      mt-12">
+        {steps.map((item, index) => (
+          <StepCard key={index} {...item} />
+        ))}
       </div>
+
     </section>
   )
 }

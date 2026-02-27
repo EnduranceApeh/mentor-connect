@@ -12,18 +12,18 @@ function Login() {
 
   const [error, setError] = useState(""); // For showing errors
   const navigate = useNavigate();
-  const { user, role } = useAuth();
+  const { firebaseUser, role } = useAuth();
 
   // Automatically redirect after login
   useEffect(() => {
-    if (user && role) {
+    if (firebaseUser && role) {
       if (role === "mentor") {
         navigate("/mentor");
       } else if (role === "mentee") {
         navigate("/mentee");
       }
     }
-  }, [user, role, navigate]);
+  }, [firebaseUser, role, navigate]);
 
   function handleChange(e) {
     setLoginData((prev) => ({
@@ -39,7 +39,7 @@ function Login() {
       const { email, password } = loginData;
       await login(email, password);
       setError(""); // Clear previous error if login succeeds
-      console.log("Login successful");
+      alert("Login successful");
     } catch (err) {
       console.error(err.message);
       setError("Login failed. Check your email or password.");

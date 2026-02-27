@@ -72,4 +72,4 @@ function ProfileImageUpload({ profile, setProfile }) {
   )
 }
 
-export default ProfileImageUpload
+export default ProfileImageUpload;
