@@ -1,16 +1,90 @@
-# React + Vite
+# 🚀 Mentor Connect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mentor Connect is a role-based mentorship platform that connects mentees with experienced tech mentors.  
+The platform allows mentees to discover mentors, send mentorship requests, and track request status, while mentors can manage their profiles and respond to incoming requests.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Problem It Solves
 
-## React Compiler
+Breaking into tech can be overwhelming without proper guidance.  
+Mentor Connect provides:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- A structured way for mentees to find mentors
+- A request-based mentorship system
+- A secure way to share contact information only after approval
+- A simple dashboard experience for both mentors and mentees
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+### 🔐 Authentication & Authorization
+- Firebase Authentication
+- Role-based access (Mentor / Mentee)
+- Protected routes
+- Auto-redirect based on user role
+
+---
+
+### 👨‍🎓 Mentee Features
+- Browse available mentors
+- View mentor profiles (skills, bio, experience)
+- Send mentorship request
+- Track request status (Pending / Accepted / Rejected)
+- See mentor email only after request is accepted
+
+---
+
+### 👨‍🏫 Mentor Features
+- Edit profile (Basic Info, Skills, Social Links)
+- Dynamically add/remove skills
+- View incoming mentorship requests
+- Accept or reject requests
+- Email becomes visible to mentee only after acceptance
+
+---
+
+### 📱 Responsive UI
+- Mobile-first design
+- Collapsible sidebar on smaller screens
+- Fully responsive layouts across devices
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React (Vite)
+- **Styling:** Tailwind CSS
+- **Icons:** Lucide React
+- **Backend / Database:** Firebase
+  - Firebase Authentication
+  - Firestore Database
+
+---
+
+---
+
+## 🔒 Email Privacy Logic
+
+Mentor email addresses are hidden by default.
+
+- If request status is **pending** → show placeholder message.
+- If request status is **accepted** → show success message + mentor email.
+- If rejected → display rejection message.
+
+This ensures privacy and controlled access.
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/your-username/mentor-connect.git
+cd mentor-connect
+
+### Inatll Dependencies and Run App
+npm install
+npm run dev
