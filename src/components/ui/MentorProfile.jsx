@@ -80,7 +80,7 @@ function MentorProfile() {
 
     <div className="text-center sm:text-left">
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
-        {mentor.name}
+        {mentor.fullName || mentor.name}
       </h2>
 
       <p className="text-indigo-600 text-base sm:text-lg font-medium mt-1">
