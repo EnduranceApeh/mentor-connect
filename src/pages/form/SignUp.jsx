@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signUp } from "../../firebase/auth";
+
 import { User, GraduationCap } from "lucide-react";
 import userGroupIcon from "../../assets/images/signup-logo.png";
 
 function Signup() {
   const [role, setRole] = useState("");
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     role: "",
@@ -37,6 +39,9 @@ function Signup() {
 
     const { email, password, name } = formData;
     await signUp(email, password, name, role);
+    navigate(`/${role}`,  { replace: true })
+    alert("Sign up successfull")
+    
   }
 
   return (
